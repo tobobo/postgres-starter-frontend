@@ -132,7 +132,7 @@ module.exports = function (broccoli) {
 
     var testsJs = preprocessJs(appAndDependencies, '/', prefix);
 
-    var validatedJs = validateES6(mergeTrees([app, tests]), {
+    var validatedJs = mergeTrees([app, tests]); validateES6(mergeTrees([app, tests]), {
       whitelist: {
         'ember/resolver': ['default'],
         'ember-qunit': [

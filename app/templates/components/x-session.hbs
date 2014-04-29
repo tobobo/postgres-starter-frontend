@@ -1,0 +1,7 @@
+{{#if user.id}}
+  <p>Logged in as {{user.email}}</p>
+{{else}}
+  {{input value=email type=email}}
+  {{input value=password type=password}}
+  <a href="#" {{action login}}>Log In</a>
+{{/if}}
