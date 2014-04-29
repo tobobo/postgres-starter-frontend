@@ -6,7 +6,6 @@ var compileES6 = require('broccoli-es6-concatenator');
 var validateES6 = require('broccoli-es6-import-validate');
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
-var filterCoffeescript = require('broccoli-coffee');
 
 var env = require('broccoli-env').getEnv();
 var getEnvJSON = require('./config/environment');
@@ -66,8 +65,6 @@ module.exports = function (broccoli) {
 
   var applicationJs = preprocessJs(appAndDependencies, '/', prefix);
   
-  applicationJs = filterCoffeescript(applicationJs);
-
   applicationJs = compileES6(applicationJs, {
     loaderFile: 'loader/loader.js',
     ignoredModules: [

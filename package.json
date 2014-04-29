@@ -36,6 +36,6 @@
     "broccoli-env": "0.0.1",
     "broccoli-replace": "0.1.5",
     "coffee-script": "^1.7.1",
-    "broccoli-coffee": "^0.1.0"
+    "broccoli-coffee": "~0.1.0"
   }
 }
