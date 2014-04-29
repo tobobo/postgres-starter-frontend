@@ -6,10 +6,10 @@ currentUserInitializer =
   initialize: (container, application) ->
 
     type = 'currentUser'
-    key = "#{type}:main"
-
-    container.register key, CurrentUserController
     container.typeInjection type, 'store', 'store:main'
+
+    key = "#{type}:main"
+    container.register key, CurrentUserController
 
     for type in ['controller', 'route', 'component']
       for name in ['currentUser']
