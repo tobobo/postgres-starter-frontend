@@ -7,7 +7,7 @@ XSessionComponent = Ember.Component.extend
 
   actions:
     login: (properties) ->
-      @get('user').login properties
+      user = @get('user').login properties
 
     logout: ->
       @get('user').logout()

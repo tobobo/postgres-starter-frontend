@@ -1,6 +1,6 @@
-{{#if currentUser.id}}{{else}}
-  {{#if currentUser.isLoading}}{{else}}
-    {{#if currentUser.isSaving}}{{else}}
+{{#if user.id}}{{else}}
+  {{#if user.isLoading}}{{else}}
+    {{#if user.isSaving}}{{else}}
       {{input value=email type=email}}
       {{input value=password type=password}}
       <a href="#" {{action login}}>Log In</a>
