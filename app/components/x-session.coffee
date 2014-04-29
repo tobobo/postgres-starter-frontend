@@ -12,8 +12,7 @@ XSessionComponent = Ember.Component.extend
     if data?
       params.data = data
 
-    Ember.run =>
-      $.ajax params
+    Ember.$.ajax params
 
   setUserProperties: (properties) ->
     if @get('currentUser.model')?
