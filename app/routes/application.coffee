@@ -1,5 +1,3 @@
-ApplicationRoute = Ember.Route.extend
-  beforeModel: ->
-    
+ApplicationRoute = Ember.Route.extend()
 
 `export default ApplicationRoute`

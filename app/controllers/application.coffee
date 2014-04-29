@@ -1,11 +1,17 @@
 ApplicationController = Ember.Controller.extend
 
+  createUserFromData: (data) ->
+    if data.user? then @store.push 'user', data.user
+
+  setUser: (user) ->
+    debugger
+    @set 'currentUser.model', user
+
   actions:
     loggedIn: (sessionData) ->
-      user = @store.push 'user', sessionData.user
-      @send 'setUser', user
+      @setUser @createUserFromData(sessionData)
 
-    setUser: (user) ->
-      @set 'currentUser.model', user
+    gotSession: (sessionData) ->
+      @setUser @createUserFromData(sessionData)
 
 `export default ApplicationController`
