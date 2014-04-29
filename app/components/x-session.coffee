@@ -33,12 +33,11 @@ XSessionComponent = Ember.Component.extend
           @set 'currentUser.isLoading', false
       return
 
-    login: ->
+    login: (properties) ->
       @setUserProperties
         isSaving: true
-
       @sessionReq 'post',
-        session: @getProperties 'email', 'password'
+        session: properties
       .then (data) =>
         if data.session? and data.session.user?
           @currentUser.setUser data.session.user

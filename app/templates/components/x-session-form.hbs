@@ -1,0 +1,9 @@
+{{#if currentUser.id}}{{else}}
+  {{#if currentUser.isLoading}}{{else}}
+    {{#if currentUser.isSaving}}{{else}}
+      {{input value=email type=email}}
+      {{input value=password type=password}}
+      <a href="#" {{action login}}>Log In</a>
+    {{/if}}
+  {{/if}}
+{{/if}}

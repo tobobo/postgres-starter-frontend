@@ -1,15 +1,11 @@
-{{#if currentUser.id}}
-  <p>Logged in as {{currentUser.email}} <a href="#" {{action logout}}>log out</a></p>
-{{else}}
-  {{#if currentUser.isLoading}}
-    Checking login status...
-  {{else}}
-    {{#if currentUser.model.isSaving}}
-      Logging in...
-    {{else}}
-      {{input value=email type=email}}
-      {{input value=password type=password}}
-      <a href="#" {{action login}}>Log In</a>
-    {{/if}}
-  {{/if}}
-{{/if}}
+{{x-session-form}}
+
+{{x-current-session}}
+
+{{#x-session-loading}}
+  Checking login status...
+{{/x-session-loading}}
+
+{{#x-session-saving}}
+  Logging in...
+{{/x-session-saving}}
