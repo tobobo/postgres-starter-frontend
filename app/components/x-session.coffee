@@ -1,26 +1,58 @@
 XSessionComponent = Ember.Component.extend
   didInsertElement: ->
     @send 'getCurrentUser'
+
+  sessionReq: (method, data) ->
+    params =
+      method: method
+      url: 'http://localhost:8888/sessions'
+      xhrFields:
+        withCredentials: true
+
+    if data?
+      params.data = data
+    new Ember.RSVP.Promise (resolve, reject) =>
+      setTimeout =>
+        $.ajax params
+        .then (data) =>
+          resolve data
+      , 1000
+
+  setUserProperties: (properties) ->
+    if @get('currentUser.model')?
+      @get('currentUser').setProperties properties
+    else
+      @set 'currentUser.model', properties
+
   actions:
     getCurrentUser: ->
-      $.ajax 
-        method: 'GET'
-        url: 'http://localhost:8888/sessions'
-        xhrFields:
-          withCredentials: true
-      .then (data) =>
-        if data.sessions? and data.sessions[0]?
-          @sendAction 'gotSession', data.sessions[0]
-      return
+      @setUserProperties
+        isLoading: true
+
+      Ember.run =>
+        @sessionReq 'get'
+        .then (data) =>
+          if data.sessions? and data.sessions[0]? and data.sessions[0].user?
+            @currentUser.setUser data.sessions[0].user
+          else
+            @set 'currentUser.isLoading', false
+        return
+
     login: ->
-      $.ajax
-        method: 'POST'
-        url: 'http://localhost:8888/sessions'
-        data:
+      @setUserProperties
+        isSaving: true
+
+      Ember.run =>
+        @sessionReq 'post',
           session: @getProperties 'email', 'password'
-        xhrFields:
-          withCredentials: true
-      .then (data) =>
-        @sendAction 'loggedIn', data.session
+        .then (data) =>
+          if data.session? and data.session.user?
+            @currentUser.setUser data.session.user
+
+    logout: ->
+      Ember.run =>
+        @sessionReq 'delete'
+        .then (data) =>
+          window.location = '/'
 
 `export default XSessionComponent`

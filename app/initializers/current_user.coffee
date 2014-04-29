@@ -8,7 +8,9 @@ currentUserInitializer =
 
     container.register key, CurrentUserController
 
-    for type in ['controller', 'route']
+    currentUserController = container.lookup 'currentUser:main'
+
+    for type in ['controller', 'route', 'component']
       for name in ['currentUser']
         container.typeInjection type, name, key
         
