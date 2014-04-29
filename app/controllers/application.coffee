@@ -4,7 +4,6 @@ ApplicationController = Ember.Controller.extend
     if data.user? then @store.push 'user', data.user
 
   setUser: (user) ->
-    debugger
     @set 'currentUser.model', user
 
   actions:
