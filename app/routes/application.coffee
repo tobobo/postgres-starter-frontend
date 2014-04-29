@@ -1,5 +1,3 @@
-ApplicationRoute = Ember.Route.extend
-  beforeModel: ->
-    @set 'currentUser.store', @get('store')
+ApplicationRoute = Ember.Route.extend()
 
 `export default ApplicationRoute`

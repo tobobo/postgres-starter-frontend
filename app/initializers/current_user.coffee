@@ -1,14 +1,15 @@
 `import CurrentUserController from 'postgres-starter-frontend/controllers/current_user'`
 
 currentUserInitializer =
-  name: 'injectCommon'
+  name: 'injectCurrentUser'
+  after: ['store', 'injectStore']
   initialize: (container, application) ->
 
-    key = 'currentUser:main'
+    type = 'currentUser'
+    key = "#{type}:main"
 
     container.register key, CurrentUserController
-
-    currentUserController = container.lookup 'currentUser:main'
+    container.typeInjection type, 'store', 'store:main'
 
     for type in ['controller', 'route', 'component']
       for name in ['currentUser']
