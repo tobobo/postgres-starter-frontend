@@ -1,10 +1,10 @@
 XSessionComponent = Ember.Component.extend
 
   getCurrentUser: (->
-    unless @get('currentUser.id')
+    unless @get('user.id')
       @get('user').getCurrentUser()
   ).on 'didInsertElement'
-  
+
   actions:
     login: (properties) ->
       @get('user').login properties
