@@ -31,8 +31,8 @@ currentUserInitializer =
 
         new Ember.RSVP.Promise (resolve, reject) =>
           Ember.$.ajax params
-          .then (data) => Ember.run => resolve data
-          , (error) => Ember.run => reject error
+          .then (data) -> Ember.run -> resolve data
+          , (error) -> Ember.run -> reject error
 
       getCurrentUser: ->
         @setUserProperties
