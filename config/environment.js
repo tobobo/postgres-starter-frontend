@@ -8,8 +8,6 @@ module.exports = function(environment) {
     }
   };
 
-  console.log('environment yo');
-
   if (environment === 'development') {
 
   }
