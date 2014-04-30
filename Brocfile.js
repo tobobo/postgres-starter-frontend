@@ -56,7 +56,7 @@ module.exports = function (broccoli) {
   var legacyFilesToAppend = [
     'jquery.js',
     'handlebars.js',
-    'ember.js',
+    'ember/index.js',
     'ic-ajax/dist/named-amd/main.js',
     'ember-data.js',
     'ember-resolver.js',
