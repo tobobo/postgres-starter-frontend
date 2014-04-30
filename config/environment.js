@@ -9,7 +9,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-
+    ENV.backendURL = 'http://louder.dev:8888';
   }
 
   if (environment === 'production') {

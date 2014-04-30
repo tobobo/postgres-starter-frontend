@@ -22,7 +22,7 @@ currentUserInitializer =
       sessionReq: (method, data) ->
         params =
           method: method
-          url: 'http://localhost:8888/sessions'
+          url: "#{window.ENV.backendURL}/auth"
           xhrFields:
             withCredentials: true
 
