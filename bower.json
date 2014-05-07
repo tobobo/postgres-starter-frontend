@@ -8,8 +8,10 @@
     "ember": "http://builds.emberjs.com/canary/ember.js",
     "ember-prod": "http://builds.emberjs.com/canary/ember.prod.js",
     "ember-data": "1.0.0-beta.7",
-    "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
+    "ember-resolver": "stefanpenner/ember-jj-abrams-resolver#master",
     "ic-ajax": "~1.x",
-    "loader": "git://github.com/stefanpenner/loader.js#1.0.0"
+    "loader": "stefanpenner/loader.js#1.0.0",
+    "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.1",
+    "ember-load-initializers": "stefanpenner/ember-load-initializers#0.0.1"
   }
 }
